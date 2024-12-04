@@ -111,13 +111,11 @@ func main() {
 		h := hourData.PeriodLimitValue - 1 // Shift to right hour
 
 		if ((h == newTime.Hour()) && (prev == 0 || prev == 2)) {
-			fmt.Println(hourData.Electricity)
-
 			switch(hourData.Electricity) {
 			case 0:
 				break;
 			case 1:
-				cmd := exec.Command("osascript", "-e", `display notification "Очікується відключенн електроенергії через 15 хвилин" with title "CheckPower"`)
+				cmd := exec.Command("osascript", "-e", `display notification "Очікується відключенн електроенергії" with title "CheckPower"`)
 				cmd.Stdout = os.Stdout
 				cmd.Stderr = os.Stderr
 
@@ -126,7 +124,7 @@ func main() {
 					log.Fatalf("Error running command: %v", err)
 				}
 
-				cmd = exec.Command("osascript", "-e", `say "Очікується відключення електроенергії через 15 хвилин" using "Lesya"`)
+				cmd = exec.Command("osascript", "-e", `say "Очікується відключення електроенергії" using "Lesya"`)
 				err = cmd.Run()
 				if err != nil {
 					log.Fatalf("Error running command: %v", err)
@@ -139,7 +137,7 @@ func main() {
 					break;
 				}
 
-				cmd := exec.Command("osascript", "-e", `display notification "Очукіється можливе відключенн електроенергії через 15 хвилин" with title "CheckPower"`)
+				cmd := exec.Command("osascript", "-e", `display notification "Очукіється можливе відключенн електроенергії" with title "CheckPower"`)
 				cmd.Stdout = os.Stdout
 				cmd.Stderr = os.Stderr
 
@@ -148,7 +146,7 @@ func main() {
 					log.Fatalf("Error running command: %v", err)
 				}
 
-				cmd = exec.Command("osascript", "-e", `say "Очукіється можливе відключенн електроенергії через 15 хвилин" using "Lesya"`)
+				cmd = exec.Command("osascript", "-e", `say "Очукіється можливе відключенн електроенергії" using "Lesya"`)
 				err = cmd.Run()
 				if err != nil {
 					log.Fatalf("Error running command: %v", err)
