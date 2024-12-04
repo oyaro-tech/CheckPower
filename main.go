@@ -115,7 +115,7 @@ func main() {
 			case 0:
 				break;
 			case 1:
-				cmd := exec.Command("osascript", "-e", `display notification "Очікується відключенн електроенергії" with title "CheckPower"`)
+				cmd := exec.Command("osascript", "-e", `display notification "Очікується відключення електроенергії" with title "CheckPower"`)
 				cmd.Stdout = os.Stdout
 				cmd.Stderr = os.Stderr
 
@@ -137,7 +137,7 @@ func main() {
 					break;
 				}
 
-				cmd := exec.Command("osascript", "-e", `display notification "Очукіється можливе відключенн електроенергії" with title "CheckPower"`)
+				cmd := exec.Command("osascript", "-e", `display notification "Очукіється можливе відключення електроенергії" with title "CheckPower"`)
 				cmd.Stdout = os.Stdout
 				cmd.Stderr = os.Stderr
 
@@ -146,7 +146,7 @@ func main() {
 					log.Fatalf("Error running command: %v", err)
 				}
 
-				cmd = exec.Command("osascript", "-e", `say "Очукіється можливе відключенн електроенергії" using "Lesya"`)
+				cmd = exec.Command("osascript", "-e", `say "Очукіється можливе відключення електроенергії" using "Lesya"`)
 				err = cmd.Run()
 				if err != nil {
 					log.Fatalf("Error running command: %v", err)
