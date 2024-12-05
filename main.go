@@ -52,7 +52,10 @@ func main() {
 		log.Fatalf("Usage: %s <accountNumber> <timeAhead?>\n", os.Args[0])
 	}
 
-	var timeAhead time.Duration = 15
+	timeAhead, err := time.ParseDuration("15m")
+	if err != nil {
+		log.Fatalf("[!] Error parsing duration: %v", err)
+	}
 
 	if (len(os.Args[1:]) == 2) {
 		timeAhead, err = time.ParseDuration(os.Args[2])
